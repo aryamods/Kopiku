@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+            color: #343a40;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .thank-you-container {
+            max-width: 600px;
+            text-align: center;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .thank-you-message h1 {
+            font-family: 'Playfair Display', serif;
+            color: #28a745;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .thank-you-message p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        .thank-you-image {
+            margin: 20px 0;
+            width: 100px;
+            animation: bounce 2s infinite;
+        }
+        .btn-home {
+            background: #28a745;
+            color: #fff;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+        .btn-home:hover {
+            background-color: #218838;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="thank-you-message">
+            <h1>Terima Kasih</h1>
+            <img src="{{ url_for('static', filename='thankyou.png') }}" alt="Thank You" class="thank-you-image">
+            <p>Pesanan Anda telah diterima<br>Kami akan segera memprosesnya!</p>
+            <a href="/" class="btn btn-home">Kembali ke Beranda</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

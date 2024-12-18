@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopiku - Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+            color: #343a40;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .list-group-item {
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            transition: transform 0.2s;
+        }
+        .list-group-item:hover {
+            transform: scale(1.02);
+            background-color: #f1f1f1;
+        }
+        .btn {
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kopiku - Menu</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Produk</h2>
+                <ul class="list-group">
+                    {% for product in products %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>{{ product.name }} - Rp {{ product.price }}</span>
+                        <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-sm btn-primary">Tambah</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Keranjang</h2>
+                <ul class="list-group">
+                    {% for item in cart %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>{{ item.name }} - Rp {{ item.price }}</span>
+                        <a href="{{ url_for('remove_from_cart', product_id=item.id) }}" class="btn btn-sm btn-danger">Hapus</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h3 class="mt-3">Total: Rp {{ total }}</h3>
+                <a href="{{ url_for('checkout') }}" class="btn btn-success mt-2">Checkout</a>
+                <a href="{{ url_for('clear_cart') }}" class="btn btn-secondary mt-2">Kosongkan Keranjang</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
