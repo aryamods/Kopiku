@@ -15,7 +15,7 @@ Langkah-langkah untuk menginstal dan menjalankan proyek ini di lingkungan lokal 
 
 1. Clone repositori ini:
    ```bash
-   git clone https://github.com/username/kopiku.git
+   git clone https://github.com/aryamods/kopiku.git
    
 2. Install dependensi:
    ```bash
